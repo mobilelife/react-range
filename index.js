@@ -7,6 +7,7 @@ var Range = React.createClass({
   displayName: 'Range',
   propTypes: {
     onChange: React.PropTypes.func,
+    onInput: React.PropTypes.func,
     onClick: React.PropTypes.func,
     onKeyDown: React.PropTypes.func,
     onMouseMove: React.PropTypes.func
@@ -15,6 +16,7 @@ var Range = React.createClass({
     return {
       type: 'range',
       onChange: function(){},
+      onInput: function(){},
       onClick: function(){},
       onKeyDown: function(){},
       onMouseMove: function(){}
@@ -23,6 +25,10 @@ var Range = React.createClass({
   onRangeChange: function(e) {
     this.props.onMouseMove(e);
     if (e.buttons !== 1 && e.which !== 1) return;
+    this.props.onChange(e);
+  },
+  onRangeInput: function(e) {
+    this.props.onInput(e);
     this.props.onChange(e);
   },
   onRangeClick: function(e) {
@@ -45,6 +51,7 @@ var Range = React.createClass({
       onClick: this.onRangeClick,
       onKeyDown: this.onRangeKeyDown,
       onMouseMove: this.onRangeChange,
+      onInput: this.onRangeInput,
       onChange: function() {},
       ref: this.setRangeRef
     });
