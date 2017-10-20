@@ -1,6 +1,6 @@
 {
   "name": "@mapbox/react-range",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "A react component that makes input type=range compatible across all browsers",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,8 @@
     "onChange"
   ],
   "dependencies": {
+    "create-react-class": "15.6.2",
+    "prop-types": "15.6.0",
     "react": "15.6.2"
   },
   "devDependencies": {
